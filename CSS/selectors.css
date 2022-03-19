@@ -1,0 +1,147 @@
+/* ************************************************************************************ */
+/* element selector */
+/* ************************************************************************************ */
+
+h1{
+    color: aliceblue;
+}
+p{
+    background-color: red;
+}
+
+h1,h2,p{
+    background-color: black;
+}
+/* ************************************************************************************ */
+/* select whole html page */
+/* ************************************************************************************ */
+
+*{
+    color: steelblue
+}
+
+
+/* ************************************************************************************ */
+/* class and id selectors */
+/* ************************************************************************************ */
+.class-name{
+    color: red;
+}
+#id-name{
+    background-color: red;
+}
+
+/* ************************************************************************************ */
+/* specificity of selectors */
+/* ************************************************************************************ */
+
+/* priority increasing order::
+group selectors or element selector >> class selectors >>> id selectors >>> inline styling
+*/
+
+
+
+/* ************************************************************************************ */
+/* pseudoselectors */
+/* ************************************************************************************ */
+
+
+li:first-child /* this will select the first child of all li*/
+{
+    color: black;
+}
+li:last-child{  /* select the last child of all li */
+    color : blue;
+}
+button:hover{
+    color: black;
+}
+google-link:link /* if the link is not visited then it wiill be purple*/
+{
+    color: purple
+}
+google-link:visited /* if the link is visited then it will be red */
+{
+    color: red
+}
+
+/* ************************************************************************************ */
+/* advance selectors */
+/* ************************************************************************************ */
+
+h2 + a {    /* every "a" tag in "h2" tag will be selected, no matter where those "a" tags are in html*/
+    color: red;
+}
+
+textarea ~ button{  /* button element right after or followed by a textarea element from same parent will be 
+    selected*/
+    color : blueviolet
+}
+
+/* 
+
+<ul>
+  <li>Home</li>
+  <li>
+    <ol>
+      <li>Inside a ol </li>
+    </ol>
+  </li>
+  <li>Contact</li>
+  <li>About</li>
+</ul>
+
+*/
+/* child selector */
+ul > li{   /* this will select "li" tags which are directl child of that ul (NOTE : not the "li" present is "ol" tag
+    */
+     color: blue;
+ }
+/* decendense  */
+ul li{  /*
+    this will select all "li" tags within "ul" tag */
+     color : green
+ }
+/* ************************************************************************************ */
+/* attribute selectors */
+/* ************************************************************************************ */
+
+/* html-tag[attr = ...]
+{
+
+ } */
+
+img[src="images/myimage.png "] /* you have to give the full value of attribute*/
+{
+    border: 10px solid black;   
+}
+/* if you use 
+    (^=) this will indicate that the attribute value starts with that
+    (*=) shows amywhere is that url
+    ($=) checks the value in the end of the url
+*/
+img[src ^=" ../images/"]   
+{
+    border: 10px solid black;
+}
+
+h2[class~= title]
+{
+    background-color: green;
+}
+ /* 
+ article-subtitle
+ article-highlightedsubtitle
+ article-boldsubtittle
+ article-italicsubtitle
+
+In this cases sometimes we use this following attribute selector
+
+It could be exactly "article"
+or there could be something right after "article"
+this selector will select all of those
+ */
+h2[class|= article]
+{
+    background-color: green;
+}

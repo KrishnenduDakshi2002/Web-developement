@@ -1,0 +1,220 @@
+/* 
+div.container>ul.list> i*4> lorem1  */
+
+/* Background property */
+.hero-image {
+  background-image: url("photographer.jpg"); /* The image used */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+/* Gradients */
+.container {
+  background: steelblue;
+  width: 1000px;
+  height: 500px;
+
+  background: linear-gradient(214deg, red, blue);
+  background: linear-gradient(-90deg, red, blue);
+  background: radial-gradient(circle, red 40%, blue 50%); /* elipse, circle */
+  background: linear-gradient(to right, yellow, steelblue);
+}
+
+/* units */
+
+/* absolute and relative units 
+absolute units --> are not affected by the devices(like phone tablet or computers
+relative units --> good for responsible designs 
+
+px are actually absolute unit but it differ from devices to devies because of dpi or pixels on that device
+mm, cm are absolute units
+pc > pt > px   // pt is slightly bigger than px  and 1 pc = 12 pt;
+
+Relative units ::
+em = relative ot the font-size of the current element(2 em means 2 times the size of the current font)
+% = relative to parent element
+vh = 1% of total body height
+vw = 1% of total body width
+rem = relative to font-size of the root element
+
+NOTE: after applying em to font-size if it disappears ,then you may took it so high, try it around 1.5em
+*/
+
+/* text manupulation  */
+
+.link {
+  text-decoration: none;
+  /* remove decoration of "a" tags */
+  text-transform: capitalize; /* lowercase , capatilize and others*/
+  /* every word will be capatilize in the html page */
+  text-align: justify; /* center, left, right , start, justify, end*/
+  /* try to make all line of same length */
+
+  /* font properties */
+  font-size: 1.23em; /* good for responsive design*/
+  font-weight: 100;
+  /* bolding of text , depend on the font, font supports some specific values */
+  font-style: italic; /* normal , oblique, italic */
+  /* italasing the text */
+}
+
+/* font familiy */
+
+/* collection of fonts with similar properties 
+    types of font families
+    1. serif (little dash in letters, used in journerals, essay)
+    2. sans-serif ( no dash in the letters, easily readable, google, facebook and other apps use this)
+    3.mono space
+    and many more
+*/
+
+.link {
+  font-family: "Times New Roman", serif; /* TImes New Roman  is a font belong to serif */
+  /* font-family: sans-serif; */
+  font-family: "Noto Sans", sans-serif; /* external font from fonts.google */
+  /* you need to link the stylesheet for font before the the style.css link */
+  /* so that our font is ready before browser brings the style sheet from the server */
+
+  /* if the google font server is down then the backup font will be sans-serif */
+  font-family: "Chara", cursive;
+  /* now the backup font is cursive */
+}
+
+/* CSS Box model */
+
+/* content -> padding -> border -> margin  */
+
+/* BORDERS of box model */
+.image {
+  border: size style color;
+  /* like this */
+  border: 2px solid black; /* solid , dashed, double */
+  border-radius: 0;
+  padding: 100px 40px 5px 0px; /* top , right , bottom , left */
+  margin: 100px 40px 5px 0px; /* top , right , bottom , left */
+
+  margin: 80px 30px; /* top-bottom , right-left */
+}
+
+/* display and float */
+
+/* Float :: */
+.image {
+  float: right;
+}
+
+/* display */
+
+.class {
+  display: none; /* completely hide the element from view */
+  display: inline-block;
+}
+
+/* Flex box */
+.class {
+  display: flex;
+  /* flex direction */
+  flex-direction: row;
+  flex-direction: column;
+  flex-direction: column-reverse;
+  flex-direction: row-reverse;
+
+  /* flex wrap */
+  flex-wrap: wrap;
+  flex-wrap: nowrap;
+
+  /* alignment of contents */
+  /* at on the parent container and will apply to the content of the container */
+  justify-content: center;
+  justify-content: space-around;
+
+  align-items: center;
+  align-items: flex-start;
+  align-items: flex-end;
+  align-items: stretch;
+  align-items: baseline;
+
+  /* to center a div 
+    turn justify-content : center;
+    and  align-items : center;
+    */
+
+  /* flex item order */
+  order: 1;
+  /* we can apply order in inline style for better management
+    inoder to do the flex items in a external css , we need to do more work
+    */
+
+  flex-grow: 1; /* default value is 0 */
+  flex-shrink: 0; /* default value is 1 */ /* if it is 0 then it will not shrink  */
+  flex-basis: 100px;
+
+  /* Flex property */
+  flex: grow shrink basis;
+  flex: 1 1 100px; /* we can add all grow, shrink, basis using flex prop */
+
+  /* item-alignment */
+
+  /* this porperty will overlook the align-items property if enabled */
+  align-self: flex-start;
+  /* if we applied flex-direction in row , then it will be applied in columnwise*/
+  /* if we applied flex-direction in column , then it will be applied in rowwise*/
+}
+
+/* Grid layout in CSS */
+
+.grid-container {
+  display: grid;
+  /* grid-template-columns: 10px 50px 10px; */
+  /* grid-template-rows: 50px 250px; */
+
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  justify-content: space-evenly; /* in flex box we actually use space-between */
+  /* but in grid we use space-evenly */
+  align-content: space-evenly;
+  row-gap: 100px;
+  grid-gap: row-gap column-gap;
+  grid-gap: 100px 100px;
+
+  /* grid rows & column lines */
+  grid-row: 1 / 3;
+  grid-column: 1 / 3; /* start line / end line */
+  grid-row: 1 / span 3;
+
+  /* grid area */
+  grid-area: 2 / 1 / span 2 / span 3;
+}
+
+/* Transition */
+
+#btn{
+    /* transition */
+
+    /* what transition do -> it smooths the transition between main and hover */
+
+    transition: all 300ms ease-in-out 1s ; /* properties duration style delay */
+    transition: background,padding 300ms ease-in-out ;
+    /* transition: background 300ms ease-in-out 1s; */
+    /* ease , linear , ease-in-out */
+
+    /* browser support prefix */
+    -webkit-transition: background,padding 300ms ease; 
+    -moz-transition: background,padding 300ms ease; 
+    -o-transition: background,padding 300ms ease; 
+    /* we need to add this lines for a property to get get maximum browser support */
+    /* safari & chrome --> -webkit-
+        firefox --> -moz-
+        opera --> -o-
+     */
+}
+
+#btn:hover{
+    background: red;
+    padding: 30px 40px;
+}
+
+/* Transform */

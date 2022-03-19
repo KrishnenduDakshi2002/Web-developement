@@ -1,0 +1,12 @@
+.images{
+    width: 1000px;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    /* font-family: "League Spartan"; */
+    font-family: "Noto Sans";
+}
