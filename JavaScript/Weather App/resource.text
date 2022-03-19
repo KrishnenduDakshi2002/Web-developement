@@ -1,0 +1,17 @@
+<!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+
+https://api.openweathermap.org/data/2.5/onecall?lat=23.1833&lon=88.5833&exclude=alerts&appid=596c62651cff7c00c629053e24aab093
+
+https://api.openweathermap.org/data/2.5/weather?q=ranaghat&appid=596c62651cff7c00c629053e24aab093

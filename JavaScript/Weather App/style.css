@@ -1,0 +1,579 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+:root{
+    --border-2:2px solid black;
+    --fs-small : 0.8rem;
+    --fs-medium: 1.1rem;
+    --fs-large : 2.5rem;
+}
+body{
+    background: url("image/weather3.jpeg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:darkblue;
+}
+
+.container{
+    /* background-color: bisque; */
+    background:url("image/Background2.png");
+    background-size: cover;
+    
+    /* width: 400px; */
+    /* width: max(35%,400px); */
+    width: 60vh;
+    /* min-width: 500px;
+    max-width: 500px; */
+
+    /* min-width: 40%; */
+    height: 90vh;
+    border-radius: 7%;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    /* display: inline-block; */
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    box-shadow: 0px 0px 30px rgb(0, 0, 0);
+}
+
+
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 7px 7px;
+}
+
+#search-bar input{
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    margin : 0 10px;
+    font-size: 1em;
+    
+}
+#search-bar input::placeholder{
+    font-size: var(--fs-medium);
+}
+#search-bar input:focus{
+    outline: none;
+}
+
+#search-btn{
+    width: 30px;
+    height: 30px;
+    /* background-color: white; */
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* weather-box */
+.weather-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 88%;
+    /* background-color: aqua; */
+
+}
+.current-box{
+    background-color: rgba(255, 255, 255,0.3);
+    border-radius: 3%;
+    width: 93%;
+    height: 40%;   
+    display: flex;
+    /* border: 3px solid black; */
+
+    
+}
+
+.temperature{
+    /* background-color: yellow; */
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.others{
+    /* background-color: yellowgreen; */
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: .9rem;
+}
+
+/* inner divisions of temperature */
+.current-temp{
+    /* background-color: orange; */
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+.current-loction{
+    width: 100%;
+    height: 20%;
+    font-size: 1rem;
+    /* color: white; */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-description{
+    /* background-color: rgb(255, 213, 0); */
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+}
+.description{
+    /* background-color: yellowgreen; */
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    font-style: oblique;
+
+}
+.icon{
+    background: url("https://openweathermap.org/img/wn/02d@2x.png");
+    background-size: cover;
+    background-position: center center;
+    /* background-color: cadetblue; */
+    width: 30%;
+    height: 100%;
+}
+.sun-rise-set{
+    /* background-color: rgb(0, 255, 153); */
+    width: 100%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+}
+
+.sun{
+    /* background-color: blueviolet; */
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.sun-rise-value,.sun-set-value
+{
+    font-weight: 500;
+    font-size: var(--fs-medium);
+}
+
+.sun-label{
+    /* background-color: white; */
+    width: 100%;
+    height: 35%;
+}
+.sun-value{
+    text-align: center;
+    padding-top: 12px;
+}
+
+/* inner division of others */
+.others-value{
+    width: 100%;
+    height: 25%;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.others-value:first-child{  /* this will select the div containing feel like */
+    padding-top: 2vh;
+}
+.others-value span{
+    font-weight: 600;
+}
+#wind{
+    display: flex;
+}
+#wind-speed-class{
+    /* background-color: red; */
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#wind-direction{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wind-direction img{
+
+    width: 1.8rem;
+    /* transform: rotate(-235deg); */
+}
+
+/* Day-hours partition */
+.hour-day-box{
+    display: flex;
+    flex-direction: column;
+    width: 93%;
+    height: 60%;
+    align-items: center;
+    
+
+}
+
+.hour-box{
+    /* background-color: brown; */
+    width: 100%;
+    height: 60%;
+    background-color: rgba(255, 255, 255,0.4);
+    border-radius: 3%;
+    margin-top: 1.5%;
+}
+.day-box{
+    /* background-color: green; */
+    width: 100%;
+    height: 40%;
+    background-color: rgba(255, 255, 255,0.5);
+    border-radius: 3%;
+    margin-top: 1.5%;
+}
+
+
+/* package from swiper.js */
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* background: #fff; */
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+/* properties for sliders hour blocks and contents */
+
+.hour-weather-box
+{
+
+    /* background-color: plum; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.h-time{
+    /* background-color: goldenrod; */
+    width: 100%;
+    height: 18%;
+    text-align: center;
+    padding: .5% 0;
+    font-size: 1.05rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.hour-weather-data{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 82%;
+
+}
+.h-main-data{
+    /* background-color: chocolate; */
+    width: 55%;
+    height: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+}
+.h-temp-icon{
+    /* background-color: yellow; */
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+.h-temp{
+    /* background-color:coral; */
+    width: 60%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.h-icon{
+    /* background-color:rgb(9, 51, 37); */
+    width: 40%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("https://openweathermap.org/img/wn/02d@2x.png");
+    background-size: cover;
+    background-position: center center;
+}
+.h-description{
+    width: 100%;
+    height: 50%;
+    padding-left: 1.8rem;
+    display: flex;
+    justify-content:flex-start;
+    align-items: flex-start;
+    font-size: 1rem;
+    font-style: oblique;
+}
+
+.h-other-data{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height:100%;
+    
+}
+
+.h-others{
+    /* background-color: slateblue; */
+    width: 100%;
+    height: 25%;
+    padding: 3px 0;
+    font-size: var(--fs-small);
+    font-weight: 500;
+}
+
+.h-others span{
+    /* color: white; */
+    font-weight: 600;
+}
+
+.h-wind-speed{
+    padding: 0;
+    display: flex;
+    /* width: 100%;
+    height: 100%; */
+}
+
+.h-speed-class{
+    /* background-color: purple; */
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.h-direction{
+    /* background-color: rgb(128, 0, 60); */
+    width: 25%;
+    height: 5vh;
+}
+.h-direction img{
+    width: 2rem;
+
+}
+
+
+
+/* Day weather box  slider CSS */
+.d-weather-container{
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+}
+.d-Date{
+    /* background-color: rebeccapurple; */
+    width: 100%;
+    font-size: 1rem;
+    background: radial-gradient(circle,rgba(255,255,255,.7),rgba(255,255,255,0));
+    /* color: white; */
+}
+/*  */
+.d-weather-box{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.d-day-night-temp{
+    /* background-color: yellow; */
+    width: 33%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background: linear-gradient(to top,rgb(0, 0, 255,0.3),rgb(255, 255, 255,0)); */
+}
+.d-day-temp{
+    /* background-color: blue; */
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: center; */
+}
+.d-night-temp{
+    /* background-color: rgb(255, 0, 170); */
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.d-day-temp-value{
+    width: 50%;
+    padding: 9px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color:black;
+}
+.d-night-temp-value{
+    width: 50%;
+    padding: 9px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color:black;
+}
+.d-day-icon,.d-night-icon{
+    width: 40%;
+    /* background-color: yellow; */
+}
+
+.d-day-icon,.d-night-icon img{
+
+    object-fit: cover;
+}
+
+
+.d-weather-description{
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    height: 100%;
+    align-items: center;
+}
+/* day weather icon */
+.d-weather-des-icon{
+    width: 50%;
+    height: 60%;
+    /* background-color: green; */
+    background: url("https://openweathermap.org/img/wn/02d@2x.png");
+    background-size: cover;
+    background-position: center center;
+
+}
+.d-weather-des-data{
+    width: 100%;
+    height: 40%;
+    /* background-color: green; */
+    font-size: 1.1rem;
+}
+
+.d-max-min-temp{
+    width: 34%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.d-max-min-label{
+    width: 100%;
+    height: 32%;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+.d-max-min-value{
+    width: 100%;
+    height: 68%;
+    display: flex;
+    align-items: center;
+}
+.thermometer-min-max-temp{
+    /* background-color: red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+}
+.thermometer-image{
+    width: 30%;
+    height: 100%;
+}
+.thermometer-image img{
+    object-fit: scale-down;
+}
+.d-temp-value{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+}

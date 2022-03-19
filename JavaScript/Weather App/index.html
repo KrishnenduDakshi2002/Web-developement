@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <!-- <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    /> -->
+    <link rel="stylesheet" href="style2.css" />
+    <link rel="stylesheet" href="style.css" />
+  <!-- <script src="script.js"></script> -->
+
+
+  </head>
+  <body onload="getLocationData()">
+    <div class="container">
+      <div class="search">
+        <div id="search-bar">
+          <input type="text" placeholder="Search by Location" id="search-bar-input"/>
+        </div>
+        <span id="search-btn">
+          <img src="image/search_black_24dp.svg" alt="search-bar-image" onclick="getInput()" />
+        </span>
+      </div>
+      <div class="weather-box">
+        <div class="current-box">
+          <div class="temperature">
+            <div class="current-temp">
+              <div class="current-temp-value">
+                30℃
+              </div>
+              <div class="current-loction" id="current-loc">Location</div>
+            </div>
+            <div class="weather-description">
+              <div class="description">Weather status</div>
+              <div class="icon"></div>
+            </div>
+            <div class="sun-rise-set">
+              <div class="sun sun-rise">
+                <div class="sun-label">Sun Rise</div>
+                <div class="sun-rise-value">5:20 AM</div>
+              </div>
+              <div class="sun sun-set">
+                <div class="sun-label">Sun Set</div>
+                <div class="sun-set-value">5:30 PM</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- start of right side of current -->
+          <div class="others">
+            <div class="others-value">
+              Feels like:
+              <span class="feel-temp">34℃</span>
+            </div>
+            <div class="others-value">
+              Humidity :
+              <span class="humidity">12</span>
+            </div>
+            <div class="others-value" id="UVI">
+              UV Index :
+              <span class="UVI">1.2</span>
+            </div>
+            <div class="others-value" id="wind">
+              <div id="wind-speed-class">
+                Speed:
+                <span class="wind-speed">12km/h</span>
+              </div>
+              <div id="wind-direction">
+                <img id="current-wind-direction" src="image/left-arrow.svg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hour-day-box">
+          <div class="hour-box">
+            <!-- hour swip -->
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <!--start of sliders of hours-->
+
+                <!--slider 01-->
+                <div class="swiper-slide">
+                  <div class="hour-weather-box">
+                    <div class="h-time" id="time-1">Time 01</div>
+                    <div class="hour-weather-data">
+                      <div class="h-main-data">
+                        <div class="h-temp-icon">
+                          <div class="h-temp" id="h-temp-1">34℃</div>
+                          <div class="h-icon" id="h-icon-1"></div>
+                        </div>
+                        <div class="h-description" id="h-description-1">
+                          description
+                        </div>
+                      </div>
+                      <div class="h-other-data">
+                        <div class="h-others">
+                          Feels like :
+                          <span class="h-feel-like" id="h-feel-like-1"
+                            >34℃</span
+                          >
+                        </div>
+                        <div class="h-others">
+                          Humidity :
+                          <span class="h-humidity" id="h-humidity-1">23</span>
+                        </div>
+                        <div class="h-others">
+                          UVI :
+                          <span class="h-UVI" id="h-UVI-1">1.2</span>
+                        </div>
+                        <div class="h-wind-speed h-others">
+                          <div class="h-speed-class">
+                            Speed:
+                            <span class="h-speed" id="h-speed-1">13km/h</span>
+                          </div>
+                          <div class="h-direction" id="h-direction-1">
+                            <!--image with degree rotation-->
+                            <img class="h-windDirection" src="image/left-arrow.svg" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--end of slider 01-->
+
+                <!-- start of slide 2 -->
+                <div class="swiper-slide">
+                  <div class="hour-weather-box">
+                    <div class="h-time" id="time-2">Time-02</div>
+                    <div class="hour-weather-data">
+                      <div class="h-main-data">
+                        <div class="h-temp-icon">
+                          <div class="h-temp" id="h-temp-2">34℃</div>
+                          <div class="h-icon" id="h-icon-2"></div>
+                        </div>
+                        <div class="h-description" id="h-description-2">
+                          description
+                        </div>
+                      </div>
+                      <div class="h-other-data">
+                        <div class="h-others">
+                          Feels like :
+                          <span class="h-feel-like" id="h-feel-like-2"
+                            >34℃</span
+                          >
+                        </div>
+                        <div class="h-others">
+                          Humidity :
+                          <span class="h-humidity" id="h-humidity-2">12</span>
+                        </div>
+                        <div class="h-others">
+                          UVI :
+                          <span class="h-UVI" id="h-UVI-2">1.2</span>
+                        </div>
+                        <div class="h-wind-speed h-others">
+                          <div class="h-speed-class">
+                            Speed :
+                            <span class="h-speed" id="h-speed-2">13km/h</span>
+                          </div>
+                          <div class="h-direction" id="h-direction-1">
+                            <!--image with degree rotation-->
+                            <img class="h-windDirection" src="image/left-arrow.svg" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of slide 2 -->
+
+                <!-- start of slide 3 -->
+                <div class="swiper-slide">
+                  <div class="hour-weather-box">
+                    <div class="h-time" id="time-3">Time-03</div>
+                    <div class="hour-weather-data">
+                      <div class="h-main-data">
+                        <div class="h-temp-icon">
+                          <div class="h-temp" id="h-temp-3">34℃</div>
+                          <div class="h-icon" id="h-icon-3"></div>
+                        </div>
+                        <div class="h-description" id="h-description-3">
+                          description
+                        </div>
+                      </div>
+                      <div class="h-other-data">
+                        <div class="h-others">
+                          Feels like :
+                          <span class="h-feel-like" id="h-feel-like-3"
+                            >34℃</span
+                          >
+                        </div>
+                        <div class="h-others">
+                          Humidity :
+                          <span class="h-humidity" id="h-humidity-3">12</span>
+                        </div>
+                        <div class="h-others">
+                          UVI :
+                          <span class="h-UVI" id="h-UVI-3">1.2</span>
+                        </div>
+                        <div class="h-wind-speed h-others">
+                          <div class="h-speed-class">
+                            Speed :
+                            <span class="h-speed" id="h-speed-3">12km/h</span>
+                          </div>
+                          <div class="h-direction" id="h-direction-3">
+                            <!--image with degree rotation-->
+                            <img class="h-windDirection" src="image/left-arrow.svg" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of slide 3 -->
+
+                <!-- start of slide 4 -->
+                <div class="swiper-slide">
+                  <div class="hour-weather-box">
+                    <div class="h-time" id="time-4">Time-04</div>
+                    <div class="hour-weather-data">
+                      <div class="h-main-data">
+                        <div class="h-temp-icon">
+                          <div class="h-temp" id="h-temp-4">34℃</div>
+                          <div class="h-icon" id="h-icon-4"></div>
+                        </div>
+                        <div class="h-description" id="h-description-4">
+                          description
+                        </div>
+                      </div>
+                      <div class="h-other-data">
+                        <div class="h-others">
+                          Feels like :
+                          <span class="h-feel-like" id="h-feel-like-4"
+                            >34℃</span
+                          >
+                        </div>
+                        <div class="h-others">
+                          Humidity :
+                          <span class="h-humidity" id="h-humidity-4">23</span>
+                        </div>
+                        <div class="h-others">
+                          UVI :
+                          <span class="h-UVI" id="h-UVI-4">1.2</span>
+                        </div>
+                        <div class="h-wind-speed h-others">
+                          <div class="h-speed-class">
+                            Speed :
+                            <span class="h-speed" id="h-speed-4">13km/h</span>
+                          </div>
+                          <div class="h-direction" id="h-direction-4">
+                            <!--image with degree rotation-->
+                            <img class="h-windDirection" src="image/left-arrow.svg" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of slide 4 -->
+                <!-- start of slide 5 -->
+                <div class="swiper-slide">
+                  <div class="hour-weather-box">
+                    <div class="h-time" id="time-5">Time-05</div>
+                    <div class="hour-weather-data">
+                      <div class="h-main-data">
+                        <div class="h-temp-icon">
+                          <div class="h-temp" id="h-temp-5">34℃</div>
+                          <div class="h-icon" id="h-icon-5"></div>
+                        </div>
+                        <div class="h-description" id="h-description-5">
+                          description
+                        </div>
+                      </div>
+                      <div class="h-other-data">
+                        <div class="h-others">
+                          Feels like :
+                          <span class="h-feel-like" id="h-feel-like-5"
+                            >34℃</span
+                          >
+                        </div>
+                        <div class="h-others">
+                          Humidity :
+                          <span class="h-humidity" id="h-humidity-5">23</span>
+                        </div>
+                        <div class="h-others">
+                          UVI :
+                          <span class="h-UVI" id="h-UVI-5">1.2</span>
+                        </div>
+                        <div class="h-wind-speed h-others">
+                          <div class="h-speed-class">
+                            Speed :
+                            <span class="h-speed" id="h-speed-5">13km/h</span>
+                          </div>
+                          <div class="h-direction" id="h-direction-5">
+                            <!--image with degree rotation-->
+                            <img class="h-windDirection" src="image/left-arrow.svg" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- start of slide 6 -->
+                <div class="swiper-slide">
+                  <div class="hour-weather-box">
+                    <div class="h-time" id="time-6">Time-06</div>
+                    <div class="hour-weather-data">
+                      <div class="h-main-data">
+                        <div class="h-temp-icon">
+                          <div class="h-temp" id="h-temp-6">34℃</div>
+                          <div class="h-icon" id="h-icon-6"></div>
+                        </div>
+                        <div class="h-description" id="h-description-6">
+                          description
+                        </div>
+                      </div>
+                      <div class="h-other-data">
+                        <div class="h-others">
+                          Feels like :
+                          <span class="h-feel-like" id="h-feel-like-6"
+                            >34℃</span
+                          >
+                        </div>
+                        <div class="h-others">
+                          Humidity :
+                          <span class="h-humidity" id="h-humidity-6">13</span>
+                        </div>
+                        <div class="h-others">
+                          UVI :
+                          <span class="h-UVI" id="h-UVI-6">1.2</span>
+                        </div>
+                        <div class="h-wind-speed h-others">
+                          <div class="h-speed-class">
+                            Speed :
+                            <span class="h-speed" id="h-speed-6">23km/h</span>
+                          </div>
+                          <div class="h-direction" id="h-direction-6">
+                            <!--image with degree rotation-->
+                            <img class="h-windDirection" src="image/left-arrow.svg" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- start of slide 7 -->
+                <div class="swiper-slide">
+                  <div class="hour-weather-box">
+                    <div class="h-time" id="time-7">Time-07</div>
+                    <div class="hour-weather-data">
+                      <div class="h-main-data">
+                        <div class="h-temp-icon">
+                          <div class="h-temp" id="h-temp-7">34℃</div>
+                          <div class="h-icon" id="h-icon-7"></div>
+                        </div>
+                        <div class="h-description" id="h-description-7">
+                          description
+                        </div>
+                      </div>
+                      <div class="h-other-data">
+                        <div class="h-others">
+                          Feels like :
+                          <span class="h-feel-like" id="h-feel-like-7"
+                            >34℃</span
+                          >
+                        </div>
+                        <div class="h-others">
+                          Humidity :
+                          <span class="h-humidity" id="h-humidity-7">23</span>
+                        </div>
+                        <div class="h-others">
+                          UVI :
+                          <span class="h-UVI" id="h-UVI-7">1.2</span>
+                        </div>
+                        <div class="h-wind-speed h-others">
+                          <div class="h-speed-class">
+                            Speed :
+                            <span class="h-speed" id="h-speed-7">15km/h</span>
+                          </div>
+                          <div class="h-direction" id="h-direction-7">
+                            <!--image with degree rotation-->
+                            <img class="h-windDirection" src="image/left-arrow.svg" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- start of slide 8 -->
+                <div class="swiper-slide">
+                  <div class="hour-weather-box">
+                    <div class="h-time" id="time-8">Time-08</div>
+                    <div class="hour-weather-data">
+                      <div class="h-main-data">
+                        <div class="h-temp-icon">
+                          <div class="h-temp" id="h-temp-8">34℃</div>
+                          <div class="h-icon" id="h-icon-8"></div>
+                        </div>
+                        <div class="h-description" id="h-description-8">
+                          description
+                        </div>
+                      </div>
+                      <div class="h-other-data">
+                        <div class="h-others">
+                          Feels like :
+                          <span class="h-feel-like" id="h-feel-like-8"
+                            >34℃</span
+                          >
+                        </div>
+                        <div class="h-others">
+                          Humidity :
+                          <span class="h-humidity" id="h-humidity-8">12</span>
+                        </div>
+                        <div class="h-others">
+                          UVI :
+                          <span class="h-UVI" id="h-UVI-8">1.2</span>
+                        </div>
+                        <div class="h-wind-speed h-others">
+                          <div class="h-speed-class">
+                            Speed :
+                            <span class="h-speed" id="h-speed-8">12km/h</span>
+                          </div>
+                          <div class="h-direction" id="h-direction-8">
+                            <!--image with degree rotation-->
+                            <img class="h-windDirection" src="image/left-arrow.svg" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- slide 9 -->
+                <div class="swiper-slide">
+                  <div class="hour-weather-box">
+                    <div class="h-time" id="time-9">Time-09</div>
+                    <div class="hour-weather-data">
+                      <div class="h-main-data">
+                        <div class="h-temp-icon">
+                          <div class="h-temp" id="h-temp-9">34℃</div>
+                          <div class="h-icon" id="h-icon-9"></div>
+                        </div>
+                        <div class="h-description" id="h-description-9">
+                          description
+                        </div>
+                      </div>
+                      <div class="h-other-data">
+                        <div class="h-others">
+                          Feels like :
+                          <span class="h-feel-like" id="h-feel-like-9"
+                            >34℃</span
+                          >
+                        </div>
+                        <div class="h-others">
+                          Humidity :
+                          <span class="h-humidity" id="h-humidity-9">13</span>
+                        </div>
+                        <div class="h-others">
+                          UVI :
+                          <span class="h-UVI" id="h-UVI-9">1.2</span>
+                        </div>
+                        <div class="h-wind-speed h-others">
+                          <div class="h-speed-class">
+                            Speed :
+                            <span class="h-speed" id="h-speed-9">13km/h</span>
+                          </div>
+                          <div class="h-direction" id="h-direction-9">
+                            <!--image with degree rotation-->
+                            <img class="h-windDirection" src="image/left-arrow.svg" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- slide 10 -->
+                <div class="swiper-slide">
+                  <div class="hour-weather-box">
+                    <div class="h-time" id="time-10">Time-10</div>
+                    <div class="hour-weather-data">
+                      <div class="h-main-data">
+                        <div class="h-temp-icon">
+                          <div class="h-temp" id="h-temp-10">34℃</div>
+                          <div class="h-icon" id="h-icon-10"></div>
+                        </div>
+                        <div class="h-description" id="h-description-10">
+                          description
+                        </div>
+                      </div>
+                      <div class="h-other-data">
+                        <div class="h-others">
+                          Feels like :
+                          <span class="h-feel-like" id="h-feel-like-10"
+                            >34℃</span
+                          >
+                        </div>
+                        <div class="h-others">
+                          Humidity :
+                          <span class="h-humidity" id="h-humidity-10">23</span>
+                        </div>
+                        <div class="h-others">
+                          UVI :
+                          <span class="h-UVI" id="h-UVI-10">1.2</span>
+                        </div>
+                        <div class="h-wind-speed h-others">
+                          <div class="h-speed-class">
+                            Speed :
+                            <span class="h-speed" id="h-speed-10">12km/h</span>
+                          </div>
+                          <div class="h-direction" id="h-direction-10">
+                            <!--image with degree rotation-->
+                            <img class="h-windDirection" src="image/left-arrow.svg" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- slide 11 -->
+                <div class="swiper-slide">
+                  <div class="hour-weather-box">
+                    <div class="h-time" id="time-11">Time-11</div>
+                    <div class="hour-weather-data">
+                      <div class="h-main-data">
+                        <div class="h-temp-icon">
+                          <div class="h-temp" id="h-temp-11">34℃</div>
+                          <div class="h-icon" id="h-icon-11"></div>
+                        </div>
+                        <div class="h-description" id="h-description-11">
+                          description
+                        </div>
+                      </div>
+                      <div class="h-other-data">
+                        <div class="h-others">
+                          Feels like :
+                          <span class="h-feel-like" id="h-feel-like-11"
+                            >34℃</span
+                          >
+                        </div>
+                        <div class="h-others">
+                          Humidity :
+                          <span class="h-humidity" id="h-humidity-11">11</span>
+                        </div>
+                        <div class="h-others">
+                          UVI :
+                          <span class="h-UVI" id="h-UVI-11">1.2</span>
+                        </div>
+                        <div class="h-wind-speed h-others">
+                          <div class="h-speed-class">
+                            Speed :
+                            <span class="h-speed" id="h-speed-11">12km/h</span>
+                          </div>
+                          <div class="h-direction" id="h-direction-11">
+                            <!--image with degree rotation-->
+                            <img class="h-windDirection" src="image/left-arrow.svg" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- slide 12 -->
+                <div class="swiper-slide">
+                  <div class="hour-weather-box">
+                    <div class="h-time" id="time-12">Time-12</div>
+                    <div class="hour-weather-data">
+                      <div class="h-main-data">
+                        <div class="h-temp-icon">
+                          <div class="h-temp" id="h-temp-12">34℃</div>
+                          <div class="h-icon" id="h-icon-12"></div>
+                        </div>
+                        <div class="h-description" id="h-description-12">
+                          description
+                        </div>
+                      </div>
+                      <div class="h-other-data">
+                        <div class="h-others">
+                          Feels like :
+                          <span class="h-feel-like" id="h-feel-like-12"
+                            >34℃</span
+                          >
+                        </div>
+                        <div class="h-others">
+                          Humidity :
+                          <span class="h-humidity" id="h-humidity-12">13</span>
+                        </div>
+                        <div class="h-others">
+                          UVI :
+                          <span class="h-UVI" id="h-UVI-12">1.2</span>
+                        </div>
+                        <div class="h-wind-speed h-others">
+                          <div class="h-speed-class">
+                            Speed :
+                            <span class="h-speed" id="h-speed-12">12km/h</span>
+                          </div>
+                          <div class="h-direction" id="h-direction-12">
+                            <!--image with degree rotation-->
+                            <img class="h-windDirection" src="image/left-arrow.svg" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+            <!-- end of hour swip-->
+          </div>
+
+          <!--Day weather box-->
+          <div class="day-box">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <!--slider 01-->
+                <div class="swiper-slide">
+                  <div class="d-weather-container">
+                    <div class="d-Date" id="d-date-1">
+                      Tuesday  13 September
+                    </div>
+                    <div class="d-weather-box">
+                      <div class="d-day-night-temp">
+                        <div class="d-day-temp">
+                          <div class="d-day-icon" id="d-day-icon-1">
+                            <!--Icon image-->
+                            <img src="image/sun.svg" alt="" /> <!--sun image-->
+                          </div>
+                          <div class="d-day-temp-value" id="d-day-temp-value-1">
+                            <!--temp value-->
+                            34℃
+                          </div>
+                        </div>
+                        <div class="d-night-temp">
+                          <div class="d-night-icon" id="d-night-icon-1">
+                            <!--icon image-->
+                            <img src="image/moon.svg" alt="" />  <!--Moon image-->
+                          </div>
+                          <div
+                            class="d-night-temp-value"
+                            id="d-night-temp-value-1"
+                          >
+                            <!--temp value-->
+                            20℃
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-weather-description">
+                        <div
+                          class="d-weather-des-icon"
+                          id="d-weather-des-icon-1"
+                        >
+                          <!--weather icon-->
+                          <!-- image will be updated through Javascript -->
+                        </div>
+                        <div
+                          class="d-weather-des-data"
+                          id="d-weather-des-data-1"
+                        >
+                          <!--description-->
+                          Clear sky
+                        </div>
+                      </div>
+
+                      <div class="d-max-min-temp">
+                        <div class="d-max-min-label">Min / Max(℃)</div>
+                        <div class="d-max-min-value" id="d-max-min-value-1">
+                          <div class="thermometer-min-max-temp">
+                            <div class="thermometer-image">
+                              <img src="image/thermometer2x.png" alt="image of thermometer" />
+                            </div>
+                            <div class="d-temp-value" id="d-temp-value-1">34℃/50℃</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                  <!--slider 02-->
+                <div class="swiper-slide">
+                  <div class="d-weather-container">
+                    <div class="d-Date" id="d-date-2">
+                      Tuesday  13 September
+                    </div>
+                    <div class="d-weather-box">
+                      <div class="d-day-night-temp">
+                        <div class="d-day-temp">
+                          <div class="d-day-icon" id="d-day-icon-2">
+                            <!--Icon image-->
+                            <img src="image/sun.svg" alt="" /> <!--sun image-->
+                          </div>
+                          <div class="d-day-temp-value" id="d-day-temp-value-2">
+                            <!--temp value-->
+                            34℃
+                          </div>
+                        </div>
+                        <div class="d-night-temp">
+                          <div class="d-night-icon" id="d-night-icon-2">
+                            <!--icon image-->
+                            <img src="image/moon.svg" alt="" />  <!--Moon image-->
+                          </div>
+                          <div
+                            class="d-night-temp-value"
+                            id="d-night-temp-value-2"
+                          >
+                            <!--temp value-->
+                            20℃
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-weather-description">
+                        <div
+                          class="d-weather-des-icon"
+                          id="d-weather-des-icon-2"
+                        >
+                          <!--weather icon-->
+                          <!-- image will be updated through Javascript -->
+                        </div>
+                        <div
+                          class="d-weather-des-data"
+                          id="d-weather-des-data-2"
+                        >
+                          <!--description-->
+                          Clear sky
+                        </div>
+                      </div>
+
+                      <div class="d-max-min-temp">
+                        <div class="d-max-min-label">Min / Max(℃)</div>
+                        <div class="d-max-min-value" id="d-max-min-value-2">
+                          <div class="thermometer-min-max-temp">
+                            <div class="thermometer-image">
+                              <img src="image/thermometer2x.png" alt="image of thermometer" />
+                            </div>
+                            <div class="d-temp-value" id="d-temp-value-2">34℃/50℃</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--slider 03-->
+                <div class="swiper-slide">
+                  <div class="d-weather-container">
+                    <div class="d-Date" id="d-date-3">
+                      Tuesday  13 September
+                    </div>
+                    <div class="d-weather-box">
+                      <div class="d-day-night-temp">
+                        <div class="d-day-temp">
+                          <div class="d-day-icon" id="d-day-icon-3">
+                            <!--Icon image-->
+                            <img src="image/sun.svg" alt="" /> <!--sun image-->
+                          </div>
+                          <div class="d-day-temp-value" id="d-day-temp-value-3">
+                            <!--temp value-->
+                            34℃
+                          </div>
+                        </div>
+                        <div class="d-night-temp">
+                          <div class="d-night-icon" id="d-night-icon-3">
+                            <!--icon image-->
+                            <img src="image/moon.svg" alt="" />  <!--Moon image-->
+                          </div>
+                          <div
+                            class="d-night-temp-value"
+                            id="d-night-temp-value-3"
+                          >
+                            <!--temp value-->
+                            20℃
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-weather-description">
+                        <div
+                          class="d-weather-des-icon"
+                          id="d-weather-des-icon-3"
+                        >
+                          <!--weather icon-->
+                          <!-- image will be updated through Javascript -->
+                        </div>
+                        <div
+                          class="d-weather-des-data"
+                          id="d-weather-des-data-3"
+                        >
+                          <!--description-->
+                          Clear sky
+                        </div>
+                      </div>
+
+                      <div class="d-max-min-temp">
+                        <div class="d-max-min-label">Min / Max(℃)</div>
+                        <div class="d-max-min-value" id="d-max-min-value-3">
+                          <div class="thermometer-min-max-temp">
+                            <div class="thermometer-image">
+                              <img src="image/thermometer2x.png" alt="image of thermometer" />
+                            </div>
+                            <div class="d-temp-value" id="d-temp-value-3">34℃/50℃</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--slider 04-->
+                <div class="swiper-slide">
+                  <div class="d-weather-container">
+                    <div class="d-Date" id="d-date-4">
+                      Tuesday  13 September
+                    </div>
+                    <div class="d-weather-box">
+                      <div class="d-day-night-temp">
+                        <div class="d-day-temp">
+                          <div class="d-day-icon" id="d-day-icon-4">
+                            <!--Icon image-->
+                            <img src="image/sun.svg" alt="" /> <!--sun image-->
+                          </div>
+                          <div class="d-day-temp-value" id="d-day-temp-value-4">
+                            <!--temp value-->
+                            34℃
+                          </div>
+                        </div>
+                        <div class="d-night-temp">
+                          <div class="d-night-icon" id="d-night-icon-4">
+                            <!--icon image-->
+                            <img src="image/moon.svg" alt="" />  <!--Moon image-->
+                          </div>
+                          <div
+                            class="d-night-temp-value"
+                            id="d-night-temp-value-4"
+                          >
+                            <!--temp value-->
+                            20℃
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-weather-description">
+                        <div
+                          class="d-weather-des-icon"
+                          id="d-weather-des-icon-4"
+                        >
+                          <!--weather icon-->
+                          <!-- image will be updated through Javascript -->
+                        </div>
+                        <div
+                          class="d-weather-des-data"
+                          id="d-weather-des-data-4"
+                        >
+                          <!--description-->
+                          Clear sky
+                        </div>
+                      </div>
+
+                      <div class="d-max-min-temp">
+                        <div class="d-max-min-label">Min / Max(℃)</div>
+                        <div class="d-max-min-value" id="d-max-min-value-4">
+                          <div class="thermometer-min-max-temp">
+                            <div class="thermometer-image">
+                              <img src="image/thermometer2x.png" alt="image of thermometer" />
+                            </div>
+                            <div class="d-temp-value" id="d-temp-value-4">34℃/50℃</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--slider 05-->
+                <div class="swiper-slide">
+                  <div class="d-weather-container">
+                    <div class="d-Date" id="d-date-5">
+                      Tuesday  13 September
+                    </div>
+                    <div class="d-weather-box">
+                      <div class="d-day-night-temp">
+                        <div class="d-day-temp">
+                          <div class="d-day-icon" id="d-day-icon-5">
+                            <!--Icon image-->
+                            <img src="image/sun.svg" alt="" /> <!--sun image-->
+                          </div>
+                          <div class="d-day-temp-value" id="d-day-temp-value-5">
+                            <!--temp value-->
+                            34℃
+                          </div>
+                        </div>
+                        <div class="d-night-temp">
+                          <div class="d-night-icon" id="d-night-icon-5">
+                            <!--icon image-->
+                            <img src="image/moon.svg" alt="" />  <!--Moon image-->
+                          </div>
+                          <div
+                            class="d-night-temp-value"
+                            id="d-night-temp-value-5"
+                          >
+                            <!--temp value-->
+                            20℃
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-weather-description">
+                        <div
+                          class="d-weather-des-icon"
+                          id="d-weather-des-icon-5"
+                        >
+                          <!--weather icon-->
+                          <!-- image will be updated through Javascript -->
+                        </div>
+                        <div
+                          class="d-weather-des-data"
+                          id="d-weather-des-data-5"
+                        >
+                          <!--description-->
+                          Clear sky
+                        </div>
+                      </div>
+
+                      <div class="d-max-min-temp">
+                        <div class="d-max-min-label">Min / Max(℃)</div>
+                        <div class="d-max-min-value" id="d-max-min-value-5">
+                          <div class="thermometer-min-max-temp">
+                            <div class="thermometer-image">
+                              <img src="image/thermometer2x.png" alt="image of thermometer" />
+                            </div>
+                            <div class="d-temp-value" id="d-temp-value-5">34℃/50℃</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--slider 06-->
+                <div class="swiper-slide">
+                  <div class="d-weather-container">
+                    <div class="d-Date" id="d-date-6">
+                      Tuesday  13 September
+                    </div>
+                    <div class="d-weather-box">
+                      <div class="d-day-night-temp">
+                        <div class="d-day-temp">
+                          <div class="d-day-icon" id="d-day-icon-6">
+                            <!--Icon image-->
+                            <img src="image/sun.svg" alt="" /> <!--sun image-->
+                          </div>
+                          <div class="d-day-temp-value" id="d-day-temp-value-6">
+                            <!--temp value-->
+                            34℃
+                          </div>
+                        </div>
+                        <div class="d-night-temp">
+                          <div class="d-night-icon" id="d-night-icon-6">
+                            <!--icon image-->
+                            <img src="image/moon.svg" alt="" />  <!--Moon image-->
+                          </div>
+                          <div
+                            class="d-night-temp-value"
+                            id="d-night-temp-value-6"
+                          >
+                            <!--temp value-->
+                            20℃
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-weather-description">
+                        <div
+                          class="d-weather-des-icon"
+                          id="d-weather-des-icon-6"
+                        >
+                          <!--weather icon-->
+                          <!-- image will be updated through Javascript -->
+                        </div>
+                        <div
+                          class="d-weather-des-data"
+                          id="d-weather-des-data-6"
+                        >
+                          <!--description-->
+                          Clear sky
+                        </div>
+                      </div>
+
+                      <div class="d-max-min-temp">
+                        <div class="d-max-min-label">Min / Max(℃)</div>
+                        <div class="d-max-min-value" id="d-max-min-value-6">
+                          <div class="thermometer-min-max-temp">
+                            <div class="thermometer-image">
+                              <img src="image/thermometer2x.png" alt="image of thermometer" />
+                            </div>
+                            <div class="d-temp-value" id="d-temp-value-6">34℃/50℃</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--slider 07-->
+                <div class="swiper-slide">
+                  <div class="d-weather-container">
+                    <div class="d-Date" id="d-date-7">
+                      Tuesday  13 September
+                    </div>
+                    <div class="d-weather-box">
+                      <div class="d-day-night-temp">
+                        <div class="d-day-temp">
+                          <div class="d-day-icon" id="d-day-icon-7">
+                            <!--Icon image-->
+                            <img src="image/sun.svg" alt="" /> <!--sun image-->
+                          </div>
+                          <div class="d-day-temp-value" id="d-day-temp-value-7">
+                            <!--temp value-->
+                            34℃
+                          </div>
+                        </div>
+                        <div class="d-night-temp">
+                          <div class="d-night-icon" id="d-night-icon-7">
+                            <!--icon image-->
+                            <img src="image/moon.svg" alt="" />  <!--Moon image-->
+                          </div>
+                          <div
+                            class="d-night-temp-value"
+                            id="d-night-temp-value-7"
+                          >
+                            <!--temp value-->
+                            20℃
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-weather-description">
+                        <div
+                          class="d-weather-des-icon"
+                          id="d-weather-des-icon-7"
+                        >
+                          <!--weather icon-->
+                          <!-- image will be updated through Javascript -->
+                        </div>
+                        <div
+                          class="d-weather-des-data"
+                          id="d-weather-des-data-7"
+                        >
+                          <!--description-->
+                          Clear sky
+                        </div>
+                      </div>
+
+                      <div class="d-max-min-temp">
+                        <div class="d-max-min-label">Min / Max(℃)</div>
+                        <div class="d-max-min-value" id="d-max-min-value-7">
+                          <div class="thermometer-min-max-temp">
+                            <div class="thermometer-image">
+                              <img src="image/thermometer2x.png" alt="image of thermometer" />
+                            </div>
+                            <div class="d-temp-value" id="d-temp-value-7">34℃/50℃</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--slider 08-->
+                <div class="swiper-slide">
+                  <div class="d-weather-container">
+                    <div class="d-Date" id="d-date-8">
+                      Tuesday  13 September
+                    </div>
+                    <div class="d-weather-box">
+                      <div class="d-day-night-temp">
+                        <div class="d-day-temp">
+                          <div class="d-day-icon" id="d-day-icon-8">
+                            <!--Icon image-->
+                            <img src="image/sun.svg" alt="" /> <!--sun image-->
+                          </div>
+                          <div class="d-day-temp-value" id="d-day-temp-value-8">
+                            <!--temp value-->
+                            34℃
+                          </div>
+                        </div>
+                        <div class="d-night-temp">
+                          <div class="d-night-icon" id="d-night-icon-8">
+                            <!--icon image-->
+                            <img src="image/moon.svg" alt="" />  <!--Moon image-->
+                          </div>
+                          <div
+                            class="d-night-temp-value"
+                            id="d-night-temp-value-8"
+                          >
+                            <!--temp value-->
+                            20℃
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-weather-description">
+                        <div
+                          class="d-weather-des-icon"
+                          id="d-weather-des-icon-8"
+                        >
+                          <!--weather icon-->
+                          <!-- image will be updated through Javascript -->
+                        </div>
+                        <div
+                          class="d-weather-des-data"
+                          id="d-weather-des-data-8"
+                        >
+                          <!--description-->
+                          Clear sky
+                        </div>
+                      </div>
+
+                      <div class="d-max-min-temp">
+                        <div class="d-max-min-label">Min / Max(℃)</div>
+                        <div class="d-max-min-value" id="d-max-min-value-8">
+                          <div class="thermometer-min-max-temp">
+                            <div class="thermometer-image">
+                              <img src="image/thermometer2x.png" alt="image of thermometer" />
+                            </div>
+                            <div class="d-temp-value" id="d-temp-value-8">34℃/50℃</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</html>
